@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ChatGPTRecipesApp.Views.MainView"
+    x:Name="recipesPage"
+    Title="Recipes">
+    <ContentPage.Content>
+        <CollectionView 
+            ItemsSource="{Binding Recipes}" 
+            SelectionMode="Single">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout 
+                    Orientation="Vertical"    
+                    Span="2" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid 
+                        BackgroundColor="#F5F5F5"
+                        Margin="10"
+                        Padding="10"
+                        RowDefinitions="*, Auto"
+                        ColumnDefinitions="*">
+                        <Image 
+                            Source="{Binding ImageUrl}"
+                            Aspect="AspectFill"
+                            HeightRequest="120" />
+                        <StackLayout 
+                            Grid.Row="1"
+                            Margin="10,0,0,0">
+                            <Label 
+                                Text="{Binding Name}"
+                                FontSize="Large"
+                                FontAttributes="Bold" />
+                            <Label 
+                                Text="{Binding Category}"
+                                FontSize="Small"
+                                TextColor="#666666"
+                                Margin="0,5,0,0" />
+                            <Label 
+                                Text="{Binding Rating, StringFormat='Rating: {0:F1}'}"
+                                FontSize="Small"
+                                TextColor="#666666"
+                                Margin="0,5,0,0" />
+                            <Button 
+                                Text="Details"
+                                BackgroundColor="{StaticResource Primary}"
+                                TextColor="White"
+                                Margin="0,10,0,0"
+                                Command="{Binding Path=BindingContext.ViewRecipeCommand, Source={x:Reference Name=recipesPage}}" 
+                                CommandParameter="{Binding .}" />
+                        </StackLayout>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ContentPage.Content>
+</ContentPage>

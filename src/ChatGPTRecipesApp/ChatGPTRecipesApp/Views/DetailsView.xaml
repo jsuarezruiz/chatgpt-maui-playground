@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ChatGPTRecipesApp.Views.DetailsView"
+    Title="Details">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout 
+                Spacing="20"
+                Padding="20">
+                <Image 
+                    Source="{Binding Recipe.ImageUrl}" 
+                    Aspect="AspectFill" 
+                    HeightRequest="300"/>
+                <Label 
+                    Text="{Binding Recipe.Name}" 
+                    FontSize="24" 
+                    FontAttributes="Bold"/>
+                <Label
+                    Text="{Binding Recipe.Description}" 
+                    FontSize="16"/>
+                <Label 
+                    Text="Ingredients" 
+                    FontSize="18"
+                    FontAttributes="Bold"/>
+                <StackLayout 
+                    Spacing="10">
+                    <CollectionView 
+                        ItemsSource="{Binding Recipe.Ingredients}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Label 
+                                    Text="{Binding}" 
+                                    FontSize="16"/>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+                <Label 
+                    Text="Steps"
+                    FontSize="18" 
+                    FontAttributes="Bold"/>
+                <StackLayout 
+                    Spacing="10">
+                    <CollectionView 
+                        ItemsSource="{Binding Recipe.Directions}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Label 
+                                    Text="{Binding}" 
+                                    FontSize="16"/>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
