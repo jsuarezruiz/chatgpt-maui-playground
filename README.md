@@ -8,7 +8,7 @@ Generating from the model to the UI passing through the data, ViewModels, etc.
 
 The result:
 
-![RecipesApp](images/chatgtp-recipesapp-list.png)
+![RecipesApp](images/chatgtp-recipesapp-list.PNG)
 
 The conversation:
 
