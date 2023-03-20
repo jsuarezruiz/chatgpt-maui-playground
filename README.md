@@ -1,6 +1,6 @@
 # ChatGTP .NET MAUI Playground
 
-In this repository there are ChatGPT tests generating code for specific .NET MAUI UI of or creating small applications directly.
+In this repository there are ChatGPT tests generating code for specific .NET MAUI UI or creating small applications directly.
 
 ## Example: Recipes App
 
